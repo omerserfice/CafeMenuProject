@@ -8,12 +8,14 @@
 
 <div class="container">
     <div class="text-center my-4 display-6">
-        Home
+        Cafe Menu Home
+       
     </div>
     <div class="row my-4">
         <div class="col-md-3">
             <ul class="list-group shadow">
-                <li class="list-group-item active" style="font-size:30px;">User List</li>
+                <li class="list-group-item active  bg-success" style="font-size:20px;">User's Coffee
+Choices</li>
                 @foreach (var item in Model)
                 {
                     <li class="list-group-item"><a class="text-success" style="text-decoration:none;font-size:20px;" href="/User/UserList/@item.Userid">@item.Name @item.Surname</a></li>
