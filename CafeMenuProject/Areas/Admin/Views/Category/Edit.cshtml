@@ -1,0 +1,36 @@
+﻿@using CafeMenuProject.Models;
+@model Category
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+<div class="container">
+
+    <div class="display-5 text-center my-4">
+        Update Category
+    </div>
+    <form method="post" action="/Admin/Category/Edit">
+        <input type="hidden" name="CATEGORYID" value="@Model.Categoryid" />
+        <div class="mb-3">
+            <select class="form-select" name="CREATORUSERID" aria-label="Default select example">
+                <option selected>-Kullanıcı Seçiniz-</option>
+                @foreach (var item in ViewBag.Users)
+                {
+                    <option value="@item.Userid">@item.Name</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">CategoryName</label>
+            <input type="text" name="CATEGORYNAME" class="form-control" value="@Model.Categoryname" required>
+
+        </div>
+       
+
+        <button type="submit" class="btn btn-warning btn-sm">Update</button>
+    </form>
+</div>
+

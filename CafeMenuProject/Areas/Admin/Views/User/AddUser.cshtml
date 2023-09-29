@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+<div class="container">
+    <div class="display-5 text-center my-4">
+        Add User
+    </div>
+    <form method="post" action="/Admin/User/AddUser">
+        <div class="mb-3">
+            <label  class="form-label">Name</label>
+            <input type="text" name="NAME" class="form-control" required>
+            
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Surname</label>
+            <input type="text" name="SURNAME" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">UserName</label>
+            <input type="text" name="USERNAME" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Password</label>
+            <input type="password" name="HASHPASSWORD" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">Ekle</button>
+    </form>
+</div>
+

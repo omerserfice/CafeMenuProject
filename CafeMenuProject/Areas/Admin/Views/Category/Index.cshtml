@@ -1,0 +1,47 @@
+﻿@using CafeMenuProject.Models
+@model ICollection<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+<div class="container">
+    <div class="display-5 text-center my-4">
+        Category List
+    </div>
+    <div class="text-end">
+        <a class="btn btn-success btn-sm" href="/Admin/Category/AddCategory">Add Category +</a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>CategoryId</th>
+                <th>CategoryName</th>
+                <th>CreatedDate</th>
+                <th>CreatorUser</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Categoryid</td>
+                    <td>@item.Categoryname</td>
+                    <td>@item.Createddate</td>
+                    <td>@item.Creatoruser.Name @item.Creatoruser.Surname</td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-warning btn-sm" href="/Admin/Category/Edit/@item.Categoryid">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="/Admin/Category/DeleteCategory/@item.Categoryid">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+

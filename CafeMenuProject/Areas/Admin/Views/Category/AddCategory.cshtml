@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+
+}
+
+<div class="container">
+    <div class="display-5 text-center my-4">
+        Add Category
+    </div>
+    <form method="post" action="/Admin/Category/AddCategory">
+        <div class="mb-3">
+            <select class="form-select" name="CREATORUSERID" aria-label="Default select example">
+                <option selected>-Change User-</option>
+                @foreach (var item in ViewBag.Users)
+                {
+                    <option value="@item.Userid">@item.Name</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">CategoryName</label>
+            <input type="text" name="CATEGORYNAME" class="form-control" required>
+
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary btn-sm">Add Category +</button>
+    </form>
+</div>

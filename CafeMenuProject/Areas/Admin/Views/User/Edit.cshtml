@@ -1,0 +1,36 @@
+﻿@using CafeMenuProject.Models;
+@model User
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+
+
+<div class="container">
+
+    <div class="display-5 text-center my-4">
+        Update User
+    </div>
+    <form method="post" action="/Admin/User/Edit">
+        <input type="hidden" name="USERID" value="@Model.Userid"/>
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="NAME" class="form-control" value="@Model.Name" required>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Surname</label>
+            <input type="text" name="SURNAME" class="form-control" value="@Model.Surname" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">UserName</label>
+            <input type="text" name="USERNAME" class="form-control" value="@Model.Username" required>
+        </div>
+       
+        <button type="submit" class="btn btn-warning btn-sm">Update</button>
+    </form>
+</div>
+
+
+

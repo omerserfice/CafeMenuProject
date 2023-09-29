@@ -1,0 +1,29 @@
+﻿@using CafeMenuProject.Models
+@model ICollection<User>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_CafeMenuLayout.cshtml";
+    var ID = ViewBag.Comp;
+}
+
+<div class="container">
+    <div class="text-center my-4 display-6">
+        Home
+    </div>
+    <div class="row my-4">
+        <div class="col-md-3">
+            <ul class="list-group shadow">
+                <li class="list-group-item active" style="font-size:30px;">User List</li>
+                @foreach (var item in Model)
+                {
+                    <li class="list-group-item"><a class="text-success" style="text-decoration:none;font-size:20px;" href="/User/UserList/@item.Userid">@item.Name @item.Surname</a></li>
+                }
+               
+                
+            </ul>
+        </div>
+        <div class="col-md-9">
+            @await Component.InvokeAsync("UserProductComponent",new {id = ID == null ? 0 : ID})
+        </div>
+    </div>
+</div>

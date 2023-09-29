@@ -1,0 +1,42 @@
+﻿@model List<Product>
+
+@if (Model.Count() > 0)
+{
+	
+
+<div class="row">
+
+	
+	@foreach (var item in Model)
+	{
+
+		
+			<div class="col-md-4">
+				<div class="card shadow" style="width: 18rem;">
+					<h6 class="text-center mt-4 text-secondary"><i>@item.Category.Categoryname</i></h6>
+					<hr />
+					<img src="~/ProductImages/@item.Imagepath" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">@item.Productname</h5>
+						<p class="text-center text-danger fw-bold" style="font-size:30px;"><i>@item.Price</i> TL</p>
+						<p class="card-text"></p>
+						<div class="btn-group">
+							<a href="#" class="btn btn-primary">Details</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	}
+		
+
+
+	
+
+	</div>
+}
+
+else{
+	<div class="alert alert-danger">Bu kullanıcı henüz ürün eklememiş!</div>
+}

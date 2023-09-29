@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+<div class="container">
+    <div class="display-5 text-center my-4">
+        Add Category
+    </div>
+    <form method="post" action="/Admin/Product/AddProduct" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="exampleInputFile">Product Image Upload</label>
+            <input type="file" id="exampleInputFile" name="image" class="form-control">
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="CREATORUSERID">
+                <option selected>-Change User-</option>
+                @foreach (var item in ViewBag.Users)
+                {
+                    <option value="@item.Userid">@item.Name</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="CATEGORYID">
+                <option selected>-Change Category-</option>
+                @foreach (var item in ViewBag.Category)
+                {
+                    <option value="@item.Categoryid">@item.Categoryname</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ProductName</label>
+            <input type="text" name="PRODUCTNAME" class="form-control" required>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" name="PRICE" class="form-control" required>
+
+        </div>
+       
+
+
+        <button type="submit" class="btn btn-primary btn-sm">Add Product +</button>
+    </form>
+</div>

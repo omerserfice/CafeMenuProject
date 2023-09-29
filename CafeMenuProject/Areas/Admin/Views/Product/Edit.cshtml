@@ -1,0 +1,59 @@
+﻿@using CafeMenuProject.Models;
+@model Product
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+<div class="container">
+    <div class="display-5 text-center my-4">
+        Update Category
+    </div>
+    <div>
+        <img src="~/ProductImages/@Model.Imagepath" width="200" height="200" class="shadow my-2" />
+    </div>
+    <form method="post" action="/Admin/Product/Edit" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="exampleInputFile">Product Image Upload</label>
+            <input type="file" id="exampleInputFile" name="image" class="form-control">
+        </div>
+        <input type="hidden" name="PRODUCTID" value="@Model.Productid" />
+        <input type="hidden" name="IMAGEPATH" value="@Model.Imagepath" />
+        <div class="mb-3">
+            <select class="form-select"  name="CREATORUSERID">
+                <option selected value="@Model.Creatoruserid">-Change User-</option>
+                @foreach (var item in ViewBag.Users)
+                {
+                    <option value="@item.Userid">@item.Name</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="CATEGORYID">
+                <option selected value="@Model.Categoryid">-Change Category-</option>
+                @foreach (var item in ViewBag.Category)
+                {
+                    <option value="@item.Categoryid">@item.Categoryname</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ProductName</label>
+            <input type="text" name="PRODUCTNAME" class="form-control" value="@Model.Productname" required>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" name="PRICE" class="form-control" value="@Model.Price" required>
+
+        </div>
+        
+
+
+        <button type="submit" class="btn btn-warning btn-sm">Update Product</button>
+    </form>
+</div>

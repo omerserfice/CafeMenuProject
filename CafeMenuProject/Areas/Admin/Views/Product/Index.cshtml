@@ -1,0 +1,53 @@
+﻿@using CafeMenuProject.Models
+@model ICollection<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminCafeMenuLayout.cshtml";
+}
+
+<div class="container">
+    <div class="display-5 text-center my-4">
+        Product List
+    </div>
+    <div class="text-end">
+        <a class="btn btn-success btn-sm" href="/Admin/Product/AddProduct">Add Product +</a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th>ProductId</th>
+                <th>Image</th>
+                <th>ProductName</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>CreatedDate</th>
+                <th>CreatorUser</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <td>@item.Productid</td>
+                    <td><img class="shadow" width="150" height="150" src="~/ProductImages/@item.Imagepath" /></td>
+                    <td>@item.Productname</td>
+                    <td>@item.Category.Categoryname</td>
+                    <td>@item.Price</td>
+                    <td>@item.Createddate</td>
+                    <td>@item.Creatoruser.Name @item.Creatoruser.Surname</td>
+                    <td>
+                        <div class="btn-group">
+                            <a class="btn btn-warning btn-sm" href="/Admin/Product/Edit/@item.Productid">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="/Admin/Product/DeleteProduct/@item.Productid">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

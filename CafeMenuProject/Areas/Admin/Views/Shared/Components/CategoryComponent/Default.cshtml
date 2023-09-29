@@ -1,0 +1,14 @@
+﻿@model List<Category>
+
+	
+		@foreach (var item in Model)
+	{
+		<li class="list-group-item">
+		<b>@item.Categoryname</b>  ürün sayısı: <span class="badge bg-success">@item.Products.Count</span>
+
+
+
+	</li>
+	}
+		
+	
